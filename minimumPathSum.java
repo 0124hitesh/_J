@@ -1,39 +1,34 @@
 import java.util.*;
 public class Main {
-	public static void printWays(String s, int sum, int m, int n){
-        if(sum > n)
-            return;
+    public static int minPath(int n, int m, int[][] arr, int[][] dp){
+        if(n == arr.length - 1 && m == arr[0].length - 1)
+            return arr[n][m];
 
-        if(sum == n){
-            System.out.print(s + " ");
-            return;
-        }
+        if(n == arr.length || m == arr[0].length)
+            return Integer.MAX_VALUE;
+
+        if(dp[n][m] != -1)
+            return dp[n][m];
+
+        int right =  minPath(n + 1, m, arr, dp);
+        int down = minPath(n, m + 1, arr, dp);
         
-        for(int i=1; i <= m; ++i)
-            printWays(s + i, sum + i, m, n);
-
+        return dp[n][m] = arr[n][m] + Math.min(right, down);
     }
-	public static int countWays(int sum, int m, int n){
-        if(sum > n)
-            return 0;
+    public static void main (String args[]) {
+        Scanner sc=new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
 
-        if(sum == n)
-            return 1;
-        
-		int x = 0; 
-        for(int i=1; i <= m; ++i)
-            x += countWays(sum + i, m, n);
+        int[][] arr=new int[n][m];
+        for(int i=0; i<n; ++i)
+            for(int j=0; j<m; ++j)
+                arr[i][j] = sc.nextInt();
+            
+        int[][] dp=new int[n][m];
+        for(int[] row : dp)
+            Arrays.fill(row, -1);
 
-		return x;
-
-    }
-    public static void main(String args[]) {
-        // Your Code Here
-		Scanner sc=new Scanner(System.in);
-		int n = sc.nextInt();
-		int m = sc.nextInt();
-
-		printWays("", 0, m, n);
-		System.out.println("\n" + countWays(0, m, n));
+        System.out.println(minPath(0, 0, arr, dp));
     }
 }
