@@ -15,6 +15,7 @@ class HM{
         System.out.println(hm.get("DD"));
         // if no key present then return default value
         System.out.println( hm.getOrDefault("D", 0) + "\n");
+        
         hm.putIfAbsent("D", 56);
 
         for(Map.Entry<String, Integer> x : hm.entrySet())
@@ -26,6 +27,7 @@ class HM{
             System.out.println(entry + " " + entry.getKey() + " " + entry.getValue());
 
         System.out.println("\n" + hm.keySet());
+
         System.out.println(hm.values());
         for(int x : hm.values())
             System.out.print(x + " ");
