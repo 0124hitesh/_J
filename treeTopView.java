@@ -43,7 +43,7 @@ class BinaryTree
 	   	System.out.print(x.getValue() + " ");
    }
 	public void view(int level, Node node, Map<Integer, Integer> hm){
-		if(node == null || node.data == -1)
+		if( node.data == -1)
 			return;
 
 		if(!hm.containsKey(level))
