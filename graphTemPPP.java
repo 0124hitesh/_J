@@ -4,6 +4,7 @@ class Main{
     static class Graph{
         Map<Integer, List<Integer>> hm;
         int num;
+        
         Graph(int num){
             this.num = num;
             hm = new HashMap<>();
