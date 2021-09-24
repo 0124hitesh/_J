@@ -27,9 +27,25 @@ public class Main {
             String s = sc.nextLine();
             l.add(new Temp(s));
         }
-        Collections.sort(l, new Comparator<Temp>(){
-           public int compare(Temp ob1, Temp ob2){
-                String s1 = ob1.data;
+        // Collections.sort(l, new Comparator<Temp>(){
+        //    public int compare(Temp ob1, Temp ob2){
+        //         String s1 = ob1.data;
+        //         String s2 = ob2.data;
+        //         int len1 = s1.length();
+        //         int len2 = s2.length();
+
+        //         if(len1 > len2 && s1.contains(s2))
+        //             return -1;
+
+        //         if(len2 > len1 && s2.contains(s1))
+        //             return -1;
+
+        //         return s1.compareTo(s2);
+        //    } 
+        // });
+
+        Collections.sort(l, (ob1, ob2) -> {
+            String s1 = ob1.data;
                 String s2 = ob2.data;
                 int len1 = s1.length();
                 int len2 = s2.length();
@@ -41,7 +57,6 @@ public class Main {
                     return -1;
 
                 return s1.compareTo(s2);
-           } 
         });
 
         for(Temp x : l)
