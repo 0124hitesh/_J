@@ -16,6 +16,20 @@ class Main {
 		display(node.next);
 	}
 
+	// middle of lists
+	int getMiddleElementOfLinkedList (Main list) {
+		Main c = list;
+		Main n = list.next;
+		// Main n = list;
+		
+		while(n != null && n.next != null){
+			c = c.next;
+			n = n.next.next;
+		}
+		
+		return c.val;
+		
+	}
 	public Main reverseKGroup(Main head, int k) {
         if(head == null)
             return null;
