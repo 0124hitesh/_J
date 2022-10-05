@@ -45,6 +45,27 @@ class Main {
             display(node.next);
         }
 
+        Node mergeTwoLists2(Node firstList, Node secondList) {
+        
+            if(firstList == null) return secondList;
+             
+             Node a = new Node(0, firstList);
+             Node b = secondList;
+             
+             while(a.next != null && b != null){
+                 if(a.next.val <= b.val) a = a.next;
+                 else {
+                     Node n = new Node(a.next.val, a.next.next);
+                     a.next.val = b.val;
+                     a.next.next = n;
+                     b = b.next;
+                 }
+             }
+             if(b == null) return firstList;
+     
+             a.next = b;
+             return firstList;
+         }
         public Node mergeTwoLists(Node l1, Node l2) {
         
             if(l1 == null)
