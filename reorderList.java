@@ -1,10 +1,14 @@
 // List -> 1, 2, 3, 4, 5,6
 
+// #1 reorder
 // 1. Find mid of List (3)
 // 2. Reverse second half
 //      L1 = 1,2,3
 //      L2 = 6,5,4
 // 3. Merge list accordingly
+
+
+// #2 Rotate List 
 
 class Node{
 	int val;
@@ -45,7 +49,7 @@ class Node{
 		System.out.println("");
 	}
 	
-	public Node reverseList(Node head) {
+	Node reverseList(Node head) {
         
         Node rev = head;
         Node n = head.next;
@@ -61,6 +65,22 @@ class Node{
         
         return rev;
     }
+
+    Node mergeList(Node a, Node b){
+		Node res = a;
+		while(a != null && b != null){
+			Node s = a.next;
+			Node t = b.next;
+
+			a.next = b;
+			b.next = s;
+
+			a = a.next.next;
+			b = t;
+		}
+
+		return res;
+	}
 
 	Node reorder(Node head){
 	
@@ -78,22 +98,26 @@ class Node{
 		return mergeList(head, sec);
 	}
 
-	public Node mergeList(Node a, Node b){
-		Node res = a;
-		while(a != null && b != null){
-			Node s = a.next;
-			Node t = b.next;
+	Node rotateRight(Node head, int k) {
+        if(head == null) return null;
 
-			a.next = b;
-			b.next = s;
-
-			a = a.next.next;
-			b = t;
+        Node tail = head;
+		int c = 1;
+		while(tail.next != null){
+			tail = tail.next;
+			++c;
 		}
-
-		return res;
-	}
-
+		tail.next = head;
+		k = c - k%c + 1;
+		
+		while(--k > 0) {
+            head = head.next;
+			tail = tail.next;
+		}
+		tail.next = null;
+				
+		return head;
+    }
 
 	public static void main(String...args){
 
