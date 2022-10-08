@@ -1,5 +1,5 @@
-
 // ##
+
 class Solution {
     Node detectCycle(Node head) {
         if (head == null)
