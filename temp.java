@@ -1,32 +1,38 @@
-import java.util.*;
-class Main {
-    
-    public static void printLexo(String out, String s, char[] s_arr, boolean[] bol) {
-        if(out.length() == s_arr.length){
-            int com=out.compareTo(s);
-            if(com > 0)
-                System.out.println(out);
-        return;
-        }
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node prev;
+    public Node next;
+    public Node child;
+};
+*/
 
-        for(int i=0; i<s_arr.length; ++i){
-            if(bol[i] == false){
-                bol[i]=true;
-                printLexo(out+String.valueOf(s_arr[i]), s, s_arr, bol);
-                bol[i]=false;
-            }
-        }
+class Solution {
+    public Node flatten(Node head) {
+        if(head == null) return null;
+        fla(head);
+        return head;
     }
-    public static void main(String args[]) {
 
-        Scanner sc=new Scanner(System.in);
-        String s=sc.nextLine();
-        char[] s_arr=s.toCharArray();
-        Arrays.sort(s_arr);
+    Node fla(Node head){
+        Node c = head.child, n = head.next;
 
-        boolean bol[]=new boolean[s_arr.length];
+        if(head.child == null){
+            if(n != null) return fla(n);
+            else
+                return head;
+        }
 
-        printLexo("", s, s_arr, bol);
-        
+        head.next = head.child;
+        head.child.prev = head;
+
+        Node retChild = fla(head.child);
+        Node retNext = fla(n);
+
+        retChild.next = n;
+        n.prev = retChild;
+
+        return retNext;
     }
 }
