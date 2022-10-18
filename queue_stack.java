@@ -58,3 +58,33 @@ class MyQueue {
         return inp.empty() && oup.empty();
     }
 }
+
+// Min_Stack
+
+// Implement the below class
+// Assume that pop, top and getMin will only be called on non-empty stack.
+class MinStack {
+	Stack<Integer> s;
+	int min;
+	
+	public MinStack(){
+		s = new Stack<>();
+		min = Integer.MAX_VALUE;
+	}
+    void push(int x) {
+		if(x <= min) {
+			s.push(min);
+			min = x;
+		}
+		s.push(x);
+    }
+    void pop() {
+	    if(s.pop() == min) min = s.pop();
+    }
+    int top() {
+		return s.peek();   
+	}
+    int getMin() {
+	    return min;
+    }
+}
