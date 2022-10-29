@@ -1,3 +1,13 @@
+// Given a string str and a number k, find the length of the longest substring in str 
+// with exactly k unique characters.
+
+// str: "aabcdaddaf"
+// k: 3
+// Explanation:
+// substrings with k unique characters: ["aabc", "abc", "bcd", "cda", "cdad", "cdadd", "cdadda", "daddaf", "addaf", "ddaf", "daf"]
+// longest substrings: ["cdadda", "daddaf"]
+// Result: 6
+
 import java.util.*;
 class A {
     int longestSubstringWithKUniqueCharacters(String s, int k) {
