@@ -34,5 +34,22 @@ class HM{
 
         hm.remove("D");
         System.out.println("\n" + hm.containsKey("D"));
+
+
+        // Iterate LinkedHashMap
+        Map<Integer, Integer> m = new LinkedHashMap<>();
+        m.put(1,10);
+        m.put(2,10);
+        m.put(3,10);
+
+        // Set s = m.entrySet();
+        // Iterator it = s.iterator();
+
+        Iterator it = m.entrySet().iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
+        // get first elemnt of LinkedHashap
+        System.out.println(m.entrySet().iterator().next().getKey());
     }
 }
