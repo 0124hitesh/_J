@@ -56,6 +56,7 @@ class Solution {
     //             }
     //             m.put(t, 1);
     //         }
+    //          no of subarrays form between  i & pre = i - pre + 1
     //         res += i - pre + 1;
     //     }
 
