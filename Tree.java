@@ -1,7 +1,7 @@
 import java.util.*;
 class Solution {
 	class Node{
-		Node left, right;
+		Node left, right, next;
 		int data;
 	}
 
@@ -119,4 +119,40 @@ class Solution {
 		
 		return l != null ? l: r;
     }
+
+	// #####
+	//  Populating Next Right Pointers in Each Node
+	public Node connect(Node root) {
+		if(root == null) return null;
+		 Node left = root.left;
+		 Node right = root.right;
+		 while(left != null){
+			 left.next = right;
+			 left = left.right;
+			 right = right.left;
+		 }
+		 connect(root.left);
+		 connect(root.right);
+		 return root;  
+	 }
+
+	 // #######
+	//  Flatten Binary Tree to Linked List
+	Node pre;
+	void flatten(Node root) {
+    	pre = null;
+		fla(root);
+	}
+	
+	void fla(Node root){
+		if(root == null) return;
+		
+		fla(root.right);
+		fla(root.left);
+		root.left = null;
+		root.right = pre;
+		pre = root;
+	}
+
+
 }
