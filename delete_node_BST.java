@@ -13,6 +13,8 @@ class Solution {
     class TreeNode{
         TreeNode left, right;
         int val;
+
+        TreeNode(){}
     }
     // public TreeNode deleteNode(TreeNode root, int key) {
     //     if(root == null) return null;
