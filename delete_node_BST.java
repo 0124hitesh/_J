@@ -64,4 +64,22 @@ class Solution {
         }
         return node;
 	}
+
+
+
+    public boolean isValidBST(TreeNode root) {
+        long low = Long.MIN_VALUE;
+        long high = Long.MAX_VALUE;
+
+        return valid(low, high, root);
+    }
+    private boolean valid(long low, long high, TreeNode root){
+        if(root == null) return true;
+
+        long val = root.val;
+        if(val <= low || val >= high) return false;
+        if(!valid(low, val, root.left)) return false;
+
+        return valid(val, high, root.right);
+    }
 }
