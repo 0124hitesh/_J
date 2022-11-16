@@ -94,4 +94,21 @@ class Solution {
 		Collections.reverse(l);
         return l;
 	}
+
+    // Level Order Traversal
+    List<Integer> getLevelOrderTraversal(Node root) {
+		Queue<Node> q = new LinkedList<>();
+		List<Integer> res = new ArrayList<>();
+		
+		q.offer(root);
+		while(!q.isEmpty()){
+			for(int i = 0; i < q.size(); ++i){
+				if(q.peek().left != null) q.offer(q.peek().left);
+				if(q.peek().right != null) q.offer(q.peek().right);
+				res.add(q.poll().data);
+			}
+		}
+		
+		return res;
+	}
 }
