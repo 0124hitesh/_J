@@ -1,0 +1,9 @@
+StringBuilder is faster than String.
+StringBuilder is faster than StringBuffer (bcz stringBuffer is thread safe).
+
+Deque is faster than Stack & Queue but consume more memory.
+
+x >> 1 => divide x by 2 (signed)
+x >>> 1 unsigned
+
+
