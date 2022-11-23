@@ -8,4 +8,10 @@ x >>> 1 unsigned
 
 x % 2 = x & 1
 
+Right Set Bit Mask
+0100010 -> 000010
+1111 -> 0001
+rsbm of x = x & -x
+
+
 

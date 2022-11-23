@@ -56,10 +56,8 @@ class Math{
     //  count the number of set bits in the binary representation of n.
     int countSetBits(int n){
 		int ans = 0;
-		int x = 1;
 		for(int i = 0; i < 31; ++i){
-			if((n&x) != 0){
-				x = x << 1;
+			if((n&(1 << i)) != 0){
 				++ans;
 			} 
 		}
@@ -91,4 +89,26 @@ class Math{
         
         System.out.println();
     }
+
+    // 6. a
+    // Find the Duplicate Number
+    // You are given a list of integers nums of size n+1. 
+    // Each number in nums lies from 1 to n.
+    // All numbers appear once, except x which appears twice.
+    int findTheDuplicateNumber(int[] nums) {
+        int slow = 0, fast = 0;
+		do{
+			slow = nums[slow];
+			fast = nums[nums[fast]];
+		}while(slow != fast);
+		
+		slow = 0;
+		while(slow != fast){
+			slow = nums[slow];
+			fast = nums[fast];
+		}
+		
+		return slow;
+    }
+
 }
