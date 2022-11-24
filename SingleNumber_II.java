@@ -5,7 +5,6 @@
 // use only constant extra space.
 
 // https://www.youtube.com/watch?v=3gJxLkPPW6M
-
 class Solution {
     public int singleNumber(int[] nums) {
         // r0 = Integer.MAX_VALUE
