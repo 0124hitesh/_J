@@ -13,5 +13,4 @@ Right Set Bit Mask
 1111 -> 0001
 rsbm of x = x & -x
 
-
-
+1's complement of x, ~x
