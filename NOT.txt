@@ -3,6 +3,8 @@ StringBuilder is faster than StringBuffer (bcz stringBuffer is thread safe).
 
 Deque is faster than Stack & Queue but consume more memory.
 
+Left Shift (<<) shall be considered as multiplication by 2^N
+Right Shift (>>) shall be considered as division by 2^N
 x >> 1 => divide x by 2 (signed)
 x >>> 1 unsigned
 
