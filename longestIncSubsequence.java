@@ -1,4 +1,7 @@
 import java.util.*;
+
+// ### important
+
 public class Main {
     public static int longestSub(int ci, int pi, int[] arr, int[][] dp){
 
@@ -15,6 +18,29 @@ public class Main {
         int exc = longestSub(ci + 1, pi, arr, dp);
         return dp[ci][pi + 1] = Math.max(inc , exc);
 
+    }
+
+    // Method - 2
+    public int longestSub2(int[] nums) {
+        int max = 1;
+
+        int[] s = new int[nums.length+1];
+        s[1] = nums[0];
+        
+        for (int a : nums) {
+            if (a > s[max]) {
+                max++;
+                s[max] = a;
+            }
+            else {
+                int x = max;
+                while(--x > 0) {
+                    if (a > s[x]) break;
+                }
+                s[x+1] = a;
+            }
+        }
+        return max;
     }
     public static void main(String args[]) {
         Scanner sc=new Scanner(System.in);
