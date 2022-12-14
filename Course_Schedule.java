@@ -1,7 +1,7 @@
 // https://leetcode.com/problems/course-schedule/description/
 
 import java.util.*;
-
+@SuppressWarnings("unchecked")
 class Solution {
     boolean[] dp, vis;
 
