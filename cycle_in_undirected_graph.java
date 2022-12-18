@@ -26,4 +26,30 @@ class Solution {
 		
 		return false;
 	}
+
+	// Find Cycle using union-find method
+	// https://www.youtube.com/watch?v=mHz-mx-8lJ8
+
+	// boolean isCyclic(int n, int edges[][]) {
+    //     int[] parent = new int[501];
+	// 	for(int i = 0; i < 501; ++i) parent[i] = i;
+		
+	// 	for(int[] edge: edges){
+	// 		int aParent = findParent(edge[0], parent);
+	// 		int bParent = findParent(edge[1], parent);
+			
+	// 		if(aParent == bParent) return true;
+	// 		parent[aParent] = bParent;
+	// 	}
+		
+	// 	return false;
+    // }
+	
+	// int findParent(int n, int[] parent){
+	// 	if(n != parent[n]){
+	// 		parent[n] = findParent(parent[n], parent);
+	// 	}
+		
+	// 	return parent[n];
+	}
 }
