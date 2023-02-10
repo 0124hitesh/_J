@@ -16,3 +16,6 @@ Right Set Bit Mask
 rsbm of x = x & -x
 
 1's complement of x, ~x
+
+Deque<> d = new LinkedList<>();
+Deque<> d = new ArrayDequqe<>();
