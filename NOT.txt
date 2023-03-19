@@ -19,3 +19,5 @@ rsbm of x = x & -x
 
 Deque<> d = new LinkedList<>();
 Deque<> d = new ArrayDequqe<>();
+
+Arrays.stream(arr).max().getAsInt ;
