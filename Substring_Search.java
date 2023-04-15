@@ -6,11 +6,12 @@ class Solution {
         int CHARSET = 26;
 	    int MOD = 29;
 
-		int hash = 1, patternHash = 0, textHash = 0;
-		for(int i = 1; i < m; i++) {
-			hash *= CHARSET;
-			hash %= MOD;
-		}
+		int hash = 1;
+		int patternHash = 0, textHash = 0;
+		// for(int i = 1; i < m; i++) {
+		// 	hash *= CHARSET;
+		// 	hash %= MOD;
+		// }
 
 		for(int i = 0; i < m; i++) {
 			patternHash = (patternHash * CHARSET + pattern[i]) % MOD;
@@ -31,7 +32,8 @@ class Solution {
 				}
 			}
 			if(i + m < n) {
-				textHash = ((textHash - text[i]*hash) * CHARSET + text[i + m]) % MOD;
+				textHash = ((textHash - text[i]) * CHARSET + text[i + m]) % MOD;
+				// textHash = ((textHash - text[i]*hash) * CHARSET + text[i + m]) % MOD;
 				if(textHash < 0) {
 					textHash += MOD;
 				}
@@ -97,7 +99,7 @@ class Solution {
 	// 	}
 
 	// 	return z;
-	}
+	// }
 
 	// int findStartIndexOfSubstring(String s1, String s2) {
 	// 	String mixed = s2 + "$" + s1;
