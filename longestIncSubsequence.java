@@ -2,7 +2,8 @@ import java.util.*;
 
 // ### important
 
-public class Main {
+// https://www.youtube.com/watch?v=odrfUCS9sQk
+class Main {
     // public static int longestSub(int ci, int pi, int[] arr, int[][] dp){
 
     //     if(ci  == arr.length )
@@ -64,6 +65,23 @@ public class Main {
 
         return res;
     }
+
+    // optimise method 3
+    public int lengthOfLIS_optimiesd(int[] nums) {
+        int[] dp = new int[nums.length];
+        int len = 0, i;
+
+        for (int num : nums) {
+            i = Arrays.binarySearch(dp, 0, len, num);
+            if (i < 0) i = -(i + 1);
+
+            dp[i] = num;
+            if (i == len) ++len;
+        }
+
+        return len;
+    }
+
     public static void main(String args[]) {
         Scanner sc=new Scanner(System.in);
 
