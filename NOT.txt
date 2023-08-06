@@ -21,3 +21,9 @@ Deque<> d = new LinkedList<>();
 Deque<> d = new ArrayDequqe<>();
 
 Arrays.stream(arr).max().getAsInt ;
+
+RESET iTH Bit
+number &= ~(1 << i)
+
+SET iTH Bit
+number |= 1 << n;
