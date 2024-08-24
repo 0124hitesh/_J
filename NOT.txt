@@ -30,3 +30,5 @@ number |= 1 << n;
 
 Toggle kTh bit of n
 (n ^ (1 << (k-1)))
+
+Floyd-Warshall alforithm
