@@ -6,7 +6,7 @@ class Solution {
 
 	// 	for(int i = 1; i < n; ++i){
 	// 		int count = 0;
-
+ 
 	// 		int j = 0;
 	// 		int k = i;
 
